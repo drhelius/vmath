@@ -13,7 +13,8 @@ Class for matrix 4x4.
 
 
 
-Collaboration diagram for Matrix4$<$ T $>$:\nopagebreak
+Collaboration diagram for Matrix4$<$ T $>$:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -96,6 +97,8 @@ static \hyperlink{class_matrix4}{Matrix4}$<$ T $>$ \hyperlink{class_matrix4_a55c
 \begin{DoxyCompactList}\small\item\em Creates rotation matrix by rotation around axis. \item\end{DoxyCompactList}\item 
 static \hyperlink{class_matrix4}{Matrix4}$<$ T $>$ \hyperlink{class_matrix4_a7b68a758485c1f5b8239ed7632658519}{createTranslation} (T x, T y, T z, T w=1)
 \begin{DoxyCompactList}\small\item\em Creates translation matrix. \item\end{DoxyCompactList}\item 
+static \hyperlink{class_matrix4}{Matrix4}$<$ T $>$ \hyperlink{class_matrix4_a0b8035f3d1144444d6835cd60642009d}{createLookAt} (const \hyperlink{class_vector3}{Vector3}$<$ T $>$ \&eyePos, const \hyperlink{class_vector3}{Vector3}$<$ T $>$ \&centerPos, const \hyperlink{class_vector3}{Vector3}$<$ T $>$ \&upDir)
+\begin{DoxyCompactList}\small\item\em Creates new view matrix to look from specified position {\itshape eyePos\/} to specified position {\itshape centerPos\/}. \item\end{DoxyCompactList}\item 
 static \hyperlink{class_matrix4}{Matrix4}$<$ T $>$ \hyperlink{class_matrix4_a3874c4332bb5f89a03eac10641ad9f06}{createFrustum} (T left, T right, T bottom, T top, T zNear, T zFar)
 \begin{DoxyCompactList}\small\item\em Creates OpenGL compatible perspective projection according specified frustum parameters. \item\end{DoxyCompactList}\item 
 static \hyperlink{class_matrix4}{Matrix4}$<$ T $>$ \hyperlink{class_matrix4_af678671e87d2fafd79fe8b00344f2229}{createOrtho} (T left, T right, T bottom, T top, T zNear, T zFar)
@@ -243,6 +246,27 @@ Creates OpenGL compatible perspective projection according specified frustum par
 \item[{\em left}]Specify the coordinate for the left vertical clipping plane, \item[{\em right}]Specify the coordinate for the right vertical clipping plane. \item[{\em bottom}]Specify the coordinate for the bottom horizontal clipping plane, \item[{\em top}]Specify the coordinate for the top horizontal clipping plane. \item[{\em zNear}]Specify the distance to the near clipping plane. Distance must be positive. \item[{\em zFar}]Specify the distance to the far depth clipping plane. Distance must be positive.\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Projection matrix for specified frustum. 
+\end{DoxyReturn}
+\hypertarget{class_matrix4_a0b8035f3d1144444d6835cd60642009d}{
+\index{Matrix4@{Matrix4}!createLookAt@{createLookAt}}
+\index{createLookAt@{createLookAt}!Matrix4@{Matrix4}}
+\subsubsection[{createLookAt}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ static {\bf Matrix4}$<$T$>$ {\bf Matrix4}$<$ T $>$::createLookAt (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3}$<$ T $>$ \&}]{ eyePos, }
+\item[{const {\bf Vector3}$<$ T $>$ \&}]{ centerPos, }
+\item[{const {\bf Vector3}$<$ T $>$ \&}]{ upDir}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{class_matrix4_a0b8035f3d1144444d6835cd60642009d}
+
+
+Creates new view matrix to look from specified position {\itshape eyePos\/} to specified position {\itshape centerPos\/}. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em eyePos}]A position of camera \item[{\em centerPos}]A position where camera looks-\/at \item[{\em upDir}]Direction of up vector \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Resulting view matrix that looks from and at specific position. 
 \end{DoxyReturn}
 \hypertarget{class_matrix4_af678671e87d2fafd79fe8b00344f2229}{
 \index{Matrix4@{Matrix4}!createOrtho@{createOrtho}}
@@ -524,6 +548,22 @@ Multiplication operator.
 
 \begin{DoxyParams}{Parameters}
 \item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix4_afe91d8df25ea2a6b631cbcb288996c5d}{
+\index{Matrix4@{Matrix4}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix4@{Matrix4}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix4}$<$T$>$ {\bf Matrix4}$<$ T $>$::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix4}$<$ T $>$}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix4_afe91d8df25ea2a6b631cbcb288996c5d}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
 \hypertarget{class_matrix4_ade719cd04adda7472e087c665546df47}{
 \index{Matrix4@{Matrix4}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!Matrix4@{Matrix4}}
@@ -549,22 +589,6 @@ Multiplication operator.
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_matrix4_aaf6ce02d773283e544fd781abaa1ab5c}
-
-
-Multiplication operator. 
-
-
-\begin{DoxyParams}{Parameters}
-\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
-\hypertarget{class_matrix4_afe91d8df25ea2a6b631cbcb288996c5d}{
-\index{Matrix4@{Matrix4}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!Matrix4@{Matrix4}}
-\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix4}$<$T$>$ {\bf Matrix4}$<$ T $>$::operator$\ast$ (
-\begin{DoxyParamCaption}
-\item[{{\bf Matrix4}$<$ T $>$}]{ rhs}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{class_matrix4_afe91d8df25ea2a6b631cbcb288996c5d}
 
 
 Multiplication operator. 
@@ -604,22 +628,6 @@ Addition operator.
 
 \begin{DoxyParams}{Parameters}
 \item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
-\hypertarget{class_matrix4_aa8aa96061eba82c08bac660b75ce46b1}{
-\index{Matrix4@{Matrix4}!operator-\/@{operator-\/}}
-\index{operator-\/@{operator-\/}!Matrix4@{Matrix4}}
-\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix4}$<$T$>$ {\bf Matrix4}$<$ T $>$::operator-\/ (
-\begin{DoxyParamCaption}
-\item[{T}]{ rhs}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
-\label{class_matrix4_aa8aa96061eba82c08bac660b75ce46b1}
-
-
-Subtraction operator. 
-
-
-\begin{DoxyParams}{Parameters}
-\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
 \hypertarget{class_matrix4_a385f1a4401e78842e8061fe350f74540}{
 \index{Matrix4@{Matrix4}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!Matrix4@{Matrix4}}
@@ -629,6 +637,22 @@ Subtraction operator.
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_matrix4_a385f1a4401e78842e8061fe350f74540}
+
+
+Subtraction operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix4_aa8aa96061eba82c08bac660b75ce46b1}{
+\index{Matrix4@{Matrix4}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Matrix4@{Matrix4}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix4}$<$T$>$ {\bf Matrix4}$<$ T $>$::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix4_aa8aa96061eba82c08bac660b75ce46b1}
 
 
 Subtraction operator. 

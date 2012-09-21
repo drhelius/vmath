@@ -83,6 +83,8 @@ function toggleVisibility(linkObj) {
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="class_matrix4__coll__graph.png" border="0" usemap="#_matrix4_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="_matrix4_3_01_t_01_4_coll__map" id="_matrix4_3_01_t_01_4_coll__map">
+</map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_matrix4-members.html">List of all members.</a></p>
@@ -162,6 +164,8 @@ Static Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates rotation matrix by rotation around axis.  <a href="#a55c7865b25c33d0b02835a8ac8d32db8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix4.html#a7b68a758485c1f5b8239ed7632658519">createTranslation</a> (T x, T y, T z, T w=1)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates translation matrix.  <a href="#a7b68a758485c1f5b8239ed7632658519"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix4.html#a0b8035f3d1144444d6835cd60642009d">createLookAt</a> (const <a class="el" href="class_vector3.html">Vector3</a>&lt; T &gt; &amp;eyePos, const <a class="el" href="class_vector3.html">Vector3</a>&lt; T &gt; &amp;centerPos, const <a class="el" href="class_vector3.html">Vector3</a>&lt; T &gt; &amp;upDir)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates new view matrix to look from specified position <em>eyePos</em> to specified position <em>centerPos</em>.  <a href="#a0b8035f3d1144444d6835cd60642009d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix4.html#a3874c4332bb5f89a03eac10641ad9f06">createFrustum</a> (T left, T right, T bottom, T top, T zNear, T zFar)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates OpenGL compatible perspective projection according specified frustum parameters.  <a href="#a3874c4332bb5f89a03eac10641ad9f06"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix4.html#af678671e87d2fafd79fe8b00344f2229">createOrtho</a> (T left, T right, T bottom, T top, T zNear, T zFar)</td></tr>
@@ -430,6 +434,52 @@ template&lt;class T&gt; </div>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Projection matrix for specified frustum. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0b8035f3d1144444d6835cd60642009d"></a><!-- doxytag: member="Matrix4::createLookAt" ref="a0b8035f3d1144444d6835cd60642009d" args="(const Vector3&lt; T &gt; &amp;eyePos, const Vector3&lt; T &gt; &amp;centerPos, const Vector3&lt; T &gt; &amp;upDir)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_matrix4.html">Matrix4</a>&lt;T&gt; <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;::createLookAt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a>&lt; T &gt; &amp;&nbsp;</td>
+          <td class="paramname"> <em>eyePos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a>&lt; T &gt; &amp;&nbsp;</td>
+          <td class="paramname"> <em>centerPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a>&lt; T &gt; &amp;&nbsp;</td>
+          <td class="paramname"> <em>upDir</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Creates new view matrix to look from specified position <em>eyePos</em> to specified position <em>centerPos</em>. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>eyePos</em>&nbsp;</td><td>A position of camera </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>centerPos</em>&nbsp;</td><td>A position where camera looks-at </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>upDir</em>&nbsp;</td><td>Direction of up vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Resulting view matrix that looks from and at specific position. </dd></dl>
 
 </div>
 </div>
@@ -962,6 +1012,34 @@ template&lt;class T&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="afe91d8df25ea2a6b631cbcb288996c5d"></a><!-- doxytag: member="Matrix4::operator*" ref="afe91d8df25ea2a6b631cbcb288996c5d" args="(Matrix4&lt; T &gt; rhs) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix4.html">Matrix4</a>&lt;T&gt; <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;&nbsp;</td>
+          <td class="paramname"> <em>rhs</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Multiplication operator. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>rhs</em>&nbsp;</td><td>Right hand side argument of binary operator. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ade719cd04adda7472e087c665546df47"></a><!-- doxytag: member="Matrix4::operator*" ref="ade719cd04adda7472e087c665546df47" args="(T rhs) const " -->
 <div class="memitem">
 <div class="memproto">
@@ -1000,34 +1078,6 @@ template&lt;class T&gt; </div>
           <td class="memname"><a class="el" href="class_vector3.html">Vector3</a>&lt;T&gt; <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;::operator* </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a>&lt; T &gt; &amp;&nbsp;</td>
-          <td class="paramname"> <em>rhs</em></td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Multiplication operator. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>rhs</em>&nbsp;</td><td>Right hand side argument of binary operator. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="afe91d8df25ea2a6b631cbcb288996c5d"></a><!-- doxytag: member="Matrix4::operator*" ref="afe91d8df25ea2a6b631cbcb288996c5d" args="(Matrix4&lt; T &gt; rhs) const " -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix4.html">Matrix4</a>&lt;T&gt; <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;::operator* </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;&nbsp;</td>
           <td class="paramname"> <em>rhs</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td> const<code> [inline]</code></td>
@@ -1102,7 +1152,7 @@ template&lt;class T&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa8aa96061eba82c08bac660b75ce46b1"></a><!-- doxytag: member="Matrix4::operator&#45;" ref="aa8aa96061eba82c08bac660b75ce46b1" args="(T rhs) const " -->
+<a class="anchor" id="a385f1a4401e78842e8061fe350f74540"></a><!-- doxytag: member="Matrix4::operator&#45;" ref="a385f1a4401e78842e8061fe350f74540" args="(const Matrix4&lt; T &gt; &amp;rhs) const " -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -1111,7 +1161,7 @@ template&lt;class T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_matrix4.html">Matrix4</a>&lt;T&gt; <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;::operator- </td>
           <td>(</td>
-          <td class="paramtype">T&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt; &amp;&nbsp;</td>
           <td class="paramname"> <em>rhs</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td> const<code> [inline]</code></td>
@@ -1130,7 +1180,7 @@ template&lt;class T&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a385f1a4401e78842e8061fe350f74540"></a><!-- doxytag: member="Matrix4::operator&#45;" ref="a385f1a4401e78842e8061fe350f74540" args="(const Matrix4&lt; T &gt; &amp;rhs) const " -->
+<a class="anchor" id="aa8aa96061eba82c08bac660b75ce46b1"></a><!-- doxytag: member="Matrix4::operator&#45;" ref="aa8aa96061eba82c08bac660b75ce46b1" args="(T rhs) const " -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -1139,7 +1189,7 @@ template&lt;class T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_matrix4.html">Matrix4</a>&lt;T&gt; <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt;::operator- </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_matrix4.html">Matrix4</a>&lt; T &gt; &amp;&nbsp;</td>
+          <td class="paramtype">T&nbsp;</td>
           <td class="paramname"> <em>rhs</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td> const<code> [inline]</code></td>
@@ -1461,7 +1511,7 @@ template&lt;class T&gt; </div>
 <li>src/<a class="el" href="vmath_8h_source.html">vmath.h</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Sun Jul 10 2011 22:47:47 for vmath by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Nov 20 2011 20:10:10 for vmath by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

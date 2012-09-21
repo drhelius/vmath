@@ -2203,6 +2203,47 @@ public:
 
 		return ret;
 	}
+	
+	/**
+	 * Creates new view matrix to look from specified position @a eyePos to specified position @a centerPos
+	 * @param eyePos A position of camera
+	 * @param centerPos A position where camera looks-at
+	 * @param upDir Direction of up vector
+	 * @return Resulting view matrix that looks from and at specific position.
+	 */
+	static Matrix4<T> createLookAt(const Vector3<T>& eyePos, const Vector3<T>& centerPos, const Vector3<T>& upDir)
+	{
+		Vector3<T> forward, side, up;
+		Matrix4<T> m;
+
+		forward = centerPos - eyePos;
+		up = upDir;
+
+		forward.normalize();
+
+		// Side = forward x up
+		side = forward.crossProduct(up);
+		side.normalize();
+
+		// Recompute up as: up = side x forward
+		up = side.crossProduct(forward);
+
+		m.at(0, 0) = side.x;
+		m.at(1, 0) = side.y;
+		m.at(2, 0) = side.z;
+
+		m.at(0, 1) = up.x;
+		m.at(1, 1) = up.y;
+		m.at(2, 1) = up.z;
+
+		m.at(0, 2) = -forward.x;
+		m.at(1, 2) = -forward.y;
+		m.at(2, 2) = -forward.z;
+
+		m = m * Matrix4<T>::createTranslation(-eyePos.x, -eyePos.y, -eyePos.z);
+		return m;
+	}
+
 
 	/**
 	 * Creates OpenGL compatible perspective projection according specified frustum parameters.

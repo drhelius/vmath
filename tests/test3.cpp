@@ -457,6 +457,23 @@ public:
 		CPPUNIT_ASSERT(maxPoint.x == 0 && maxPoint.y == 0 && fabs(maxPoint.z - 1) < zEpsilon);
 	}
 
+	void testCreateLookAt()
+	{
+		Vector4f src(10, 5, 10, 1);
+		Vector3f eye(5, 5, 10);
+		Vector3f center(src.x, src.y, src.z);
+		Vector3f up(0,1,0);
+		Vector4f dest(0, 0, -5, 1);
+		Matrix4f view(Matrix4f::createLookAt(eye, center, up));
+
+		Vector4f result = view * src;
+		/*
+		std::cerr << "result:" << result << std::endl;
+		std::cerr << "dest:" << dest << std::endl;
+		*/
+		CPPUNIT_ASSERT(result == dest);
+	}
+
 	static CppUnit::Test* suite()
 	{
 		CppUnit::TestSuite* suite = new CppUnit::TestSuite("Matrix4f test");
@@ -473,6 +490,8 @@ public:
 				&Matrix4fTest::testOrthoProjection));
 		suite->addTest(new CppUnit::TestCaller<Matrix4fTest>("frustum projection",
 				&Matrix4fTest::testFrustumProjection));
+		suite->addTest(new CppUnit::TestCaller<Matrix4fTest>("create look at",
+				&Matrix4fTest::testCreateLookAt));
 
 		return suite;
 	}
